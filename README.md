@@ -8,7 +8,7 @@ project generated with CLI version 17.2.0
 ## SETUP
 - install node and npm
 - install angular
-- npm clone project
+- clone project
 - run npm install
 - run npm start (port 4300)
 - run npm test --code-coverage to run test with code coverage rapport in coverage/index.html 
