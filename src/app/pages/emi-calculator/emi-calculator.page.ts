@@ -1,21 +1,21 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 import {
   FormBuilder,
   FormControl,
   FormGroup,
   ValidationErrors,
   Validators,
-} from '@angular/forms';
-import { EmiCalculatorService } from '../../services/emi-calculator.service';
-import { EmiRequest } from '../../interfaces/emi-request.interface';
-import { EmiResponse } from '../../interfaces/emi-response.interface';
-import { HttpErrorResponse } from '@angular/common/http';
-import { ErrorUtilService } from '../../services/error-util.service';
+} from "@angular/forms";
+import { EmiCalculatorService } from "../../services/emi-calculator.service";
+import { EmiRequest } from "../../interfaces/emi-request.interface";
+import { EmiResponse } from "../../interfaces/emi-response.interface";
+import { HttpErrorResponse } from "@angular/common/http";
+import { ErrorUtilService } from "../../services/error-util.service";
 
 @Component({
-  selector: 'app-emi-calculator',
-  templateUrl: './emi-calculator.page.html',
-  styleUrl: './emi-calculator.page.scss',
+  selector: "app-emi-calculator",
+  templateUrl: "./emi-calculator.page.html",
+  styleUrl: "./emi-calculator.page.scss",
 })
 export class EmiCalculatorPage {
   emiForm: FormGroup = this.fb.group({
@@ -31,7 +31,7 @@ export class EmiCalculatorPage {
   });
 
   emiValue: number = 0;
-  apiError: string = '';
+  apiError: string = "";
   isLoading: boolean = false;
 
   constructor(
@@ -44,7 +44,7 @@ export class EmiCalculatorPage {
     if (!this.emiForm.valid) {
       this.emiForm.markAllAsTouched(); // mark as touched so all errormessages will appear
     } else {
-      this.apiError = '';
+      this.apiError = "";
       this.isLoading = true;
       this.submitEmiForm();
     }
