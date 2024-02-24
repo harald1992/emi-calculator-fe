@@ -1,0 +1,29 @@
+:root {
+  // spacing
+  --page-spacing-top: 3vw;
+  --page-spacing-horizontal: 4vw;
+  --page-spacing-bottom: 2vw;
+
+  // colors
+  --text-color-light: whitesmoke;
+
+  --color-white: white;
+  --color-darkgrey: rgb(83, 83, 83);
+  --color-blue: rgb(0, 123, 199);
+  --color-background: #fafafa;
+  --color-error: #f9dfdd;
+  --color-warning: #fbead9;
+
+  // other
+  --box-shadow: rgba(0, 0, 0, 0.16);
+}
+
+$layout-container-max-width: 672px;
+
+$layout-breakpoint-xs: 768px;
+
+@mixin mobile {
+  @media (max-width: #{$layout-breakpoint-xs}) {
+    @content;
+  }
+}

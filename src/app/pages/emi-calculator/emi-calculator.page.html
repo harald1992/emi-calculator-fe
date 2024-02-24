@@ -1,0 +1,23 @@
+<h2>Emi (Equated Monthly Installment) Calculator</h2>
+
+<form [formGroup]="emiForm" (ngSubmit)="onSubmit()">
+  <ng-container *ngFor="let control of emiForm.controls | keyvalue">
+    <app-form-row
+      [formGroup]="emiForm"
+      [formControlName]="control.key"
+      appValueControlAccessor
+    >
+    </app-form-row>
+  </ng-container>
+
+  <div class="submit-container">
+    <button class="button" type="submit">Submit</button>
+    <app-loading-spinner *ngIf="isLoading" size="2rem"></app-loading-spinner>
+  </div>
+  <app-alert *ngIf="apiError">{{ apiError}}</app-alert>
+</form>
+
+<div *ngIf="emiValue">
+  <h3>Calculated EMI value</h3>
+  <p>{{emiValue}}</p>
+</div>

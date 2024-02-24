@@ -1,0 +1,21 @@
+<div [formGroup]="formGroup" class="form-row">
+  <label class="form-row__label" [for]="formControlName"
+    >{{ formControlName }} *</label
+  ><input
+    class="form-row__input"
+    type="number"
+    [formControlName]="formControlName"
+    [id]="formControlName"
+  />
+</div>
+<div *ngIf="getErrors(formControlName) as errors">
+  <app-alert>
+    <p *ngIf="errors['required']">This field is required.</p>
+    <p *ngIf="errors['min']">
+      This field has a minimum of {{ errors["min"].min }}.
+    </p>
+    <p *ngIf="errors['max']">
+      This field has a maximum of {{ errors["max"].max }}.
+    </p>
+  </app-alert>
+</div>
