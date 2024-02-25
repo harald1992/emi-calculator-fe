@@ -1,6 +1,6 @@
 <div [formGroup]="formGroup" class="form-row">
-  <label class="form-row__label" [for]="formControlName"
-    >{{ formControlName }} *</label
+  <label class="form-row__label" [for]="formControlName">
+    {{ label || formControlName }} *</label
   ><input
     class="form-row__input"
     type="number"

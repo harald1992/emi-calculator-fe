@@ -1,16 +1,18 @@
 import { Component } from "@angular/core";
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  ValidationErrors,
-  Validators,
-} from "@angular/forms";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { EmiCalculatorService } from "../../services/emi-calculator.service";
 import { EmiRequest } from "../../interfaces/emi-request.interface";
 import { EmiResponse } from "../../interfaces/emi-response.interface";
 import { HttpErrorResponse } from "@angular/common/http";
 import { ErrorUtilService } from "../../services/error-util.service";
+import { KeyValue } from "@angular/common";
+
+const originalOrder = (
+  a: KeyValue<string, string>,
+  b: KeyValue<string, string>
+): number => {
+  return 0;
+};
 
 @Component({
   selector: "app-emi-calculator",
@@ -29,6 +31,14 @@ export class EmiCalculatorPage {
       [Validators.required, Validators.min(0), Validators.max(30)],
     ],
   });
+
+  emiFormLabels: { [key: string]: string } = {
+    loanAmount: "Loan Amount.",
+    interestRatePercentageYearly: "Yearly Interest Rate.",
+    loanTermYears: "Loan Term in Years.",
+  };
+
+  originalOrder = originalOrder;
 
   emiValue: number = 0;
   apiError: string = "";

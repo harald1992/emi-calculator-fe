@@ -1,16 +1,10 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { FormRowComponent } from './form-row.component';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  FormsModule,
-  ReactiveFormsModule,
-} from '@angular/forms';
-import { ValueControlAccessorDirective } from '../../directives/value-control-accessor.directive';
+import { FormRowComponent } from "./form-row.component";
+import { FormBuilder, FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { ValueControlAccessorDirective } from "../../directives/value-control-accessor.directive";
 
-describe('FormRowComponent', () => {
+describe("FormRowComponent", () => {
   let component: FormRowComponent;
   let fixture: ComponentFixture<FormRowComponent>;
   let formBuilder: FormBuilder;
@@ -26,14 +20,14 @@ describe('FormRowComponent', () => {
     formBuilder = TestBed.inject(FormBuilder);
 
     component.formGroup = formBuilder.group({
-      exampleControl: [''],
+      exampleControl: [""],
     });
-    component.formControlName = 'exampleControl';
+    component.formControlName = "exampleControl";
 
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });
